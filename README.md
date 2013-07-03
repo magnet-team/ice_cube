@@ -1,6 +1,6 @@
 # ice_cube - easy date expansion
 
-[![Build Status](https://secure.travis-ci.org/btucker/ice_cube.png)](http://travis-ci.org/btucker/ice_cube)
+[![Build Status](https://secure.travis-ci.org/seejohnrun/ice_cube.png)](http://travis-ci.org/seejohnrun/ice_cube)
 
 <a href="https://www.stripeme.com/pay/1lq0">
   <img alt="Pay" src="https://www.stripeme.com/pay.jpg" />
