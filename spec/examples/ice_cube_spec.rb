@@ -133,19 +133,6 @@ describe IceCube::Schedule do
     end
   end
 
-  it 'occurs monthly' do
-    start_date = Time.now
-    schedule = IceCube::Schedule.new(start_date)
-    schedule.add_recurrence_rule IceCube::Rule.monthly
-    dates = schedule.first(10)
-    dates.each do |date|
-      date.day.should == start_date.day
-      date.hour.should == start_date.hour
-      date.min.should == start_date.min
-      date.sec.should == start_date.sec
-    end
-  end
-
   it 'occurs daily' do
     start_date = Time.now
     schedule = IceCube::Schedule.new(start_date)
@@ -662,16 +649,9 @@ describe IceCube::Schedule do
 
   it 'should be able to remove a count validation from a rule' do
     rule = IceCube::Rule.daily.count(5)
-    rule.occurrence_count.should == 5
     rule.count nil
-    rule.occurrence_count.should raise_error
-  end
-
-  it 'should be able to remove a count validation from a rule' do
-    rule = IceCube::Rule.daily.count(5)
-    rule.to_hash[:count].should == 5
-    rule.count nil
-    rule.to_hash[:count].should be_nil
+    rule.to_hash.should_not have_key(:count)
+    rule.occurrence_count.should be_nil
   end
 
   it 'should be able to remove an until validation from a rule' do
